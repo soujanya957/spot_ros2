@@ -36,12 +36,14 @@ fi
 
 echo "SPOT_IP set to: ${SPOT_IP}"
 
-# --- Build and Source Workspace ---
-echo "Building the workspace..."
-colcon build --symlink-install
-
-echo "Sourcing ROS2 workspace..."
-source "install/setup.bash"
+# --- Source Workspace ---
+if [ -f "install/setup.bash" ]; then
+    echo "Sourcing ROS2 workspace..."
+    source "install/setup.bash"
+else
+    echo "Workspace not built yet. Please run 'colcon build' first."
+    return 1
+fi
 
 # --- Connection Check ---
 echo "Pinging Spot at ${SPOT_IP}..."
