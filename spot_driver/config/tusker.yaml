@@ -1,0 +1,42 @@
+/**:
+  ros__parameters:
+    # Spot Login Information
+    username: "user"
+    password: "password"
+    hostname: "128.148.140.22"
+
+    # Status Updates from Spot
+    metrics_rate: 0.04
+    lease_rate: 1.0
+    async_tasks_rate: 10.0
+    robot_state_rate: 50.0
+    image_rate: 15.0
+
+    # Some boolean parameters
+    auto_claim: True
+    auto_power_on: True
+    auto_stand: True
+
+    # Estop Parameters
+    estop_timeout: 9.0
+    start_estop: False
+
+    preferred_odom_frame: "odom"
+    tf_root: "spot/odom"
+
+    spot_name: "tusker"
+
+    cmd_duration: 0.25
+    arm_cmd_duration: 1.0
+    rgb_cameras: True
+    initialize_spot_cam: False
+
+    use_velodyne: False
+    velodyne_rate: 10.0
+
+    virtual_camera_intrinsics: [385.0, 0.0, 315.0, 0.0, 385.0, 844.0, 0.0, 0.0, 1.0]
+    virtual_camera_projection_plane: [-0.15916, 0.0, 0.987253]
+    virtual_camera_plane_distance: 0.5
+    stitched_image_row_padding: 1182
+
+    gripperless: False

@@ -353,7 +353,7 @@ class SpotROS(Node):
 
         self.declare_parameter("auto_claim", False)
         self.declare_parameter("auto_power_on", False)
-        self.declare_parameter("auto_stand", False)
+        self.declare_parameter("auto_stand", True)
 
         self.declare_parameter("use_take_lease", True)
         self.declare_parameter("get_lease_on_action", True)
@@ -462,8 +462,7 @@ class SpotROS(Node):
                 COLOR_YELLOW
                 + f"The maximum individual task rate is {max_task_rate} Hz. You have manually set the async_tasks_rate"
                 f" to {self.async_tasks_rate} which is lower and will decrease the frequency of one of the periodic"
-                " tasks being run."
-                + COLOR_END
+                " tasks being run." + COLOR_END
             )
 
         self.cmd_duration: float = self.get_parameter("cmd_duration").value
@@ -1021,12 +1020,10 @@ class SpotROS(Node):
             while self.spot_wrapper.is_estopped():
                 if not printed:
                     self.get_logger().warn(
-                        COLOR_YELLOW
-                        + "Waiting for estop to be released.  Make sure you have an active estop."
+                        COLOR_YELLOW + "Waiting for estop to be released.  Make sure you have an active estop."
                         '  You can acquire an estop on the tablet by choosing "Acquire Cut Motor Power Authority"'
                         " in the dropdown menu from the power icon.  (This will not power the motors or take the"
-                        " lease.)"
-                        + COLOR_END,
+                        " lease.)" + COLOR_END,
                     )
                     printed = True
                 time.sleep(poll_period_sec)

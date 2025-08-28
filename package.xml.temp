@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>rbd_spot_robot_2</name>
+  <version>0.0.0</version>
+  <description>The rbd_spot_robot_2 package</description>
+  <maintainer email="kaiyu@todo.todo">kaiyu</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>spot_driver</depend>
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+
+</package>
